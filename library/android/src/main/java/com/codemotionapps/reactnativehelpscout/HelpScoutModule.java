@@ -67,6 +67,18 @@ public class HelpScoutModule extends ReactContextBaseJavaModule {
 	}
 
 	@ReactMethod
+	public void addAttribute(ReadableMap identity) {
+		Iterator<Map.Entry<String, Object>> i = identity.getEntryIterator();
+
+		while (i.hasNext()) {
+			Map.Entry<String, Object> entry = i.next();
+			String key = entry.getKey();
+			if (key == "email" || key == "name") continue;
+			Beacon.addAttributeWithKey(key, (String) entry.getValue());
+		}
+	}
+
+	@ReactMethod
 	public void identify(ReadableMap identity) {
 		String email = identity.hasKey("email") ? identity.getString("email") : "";
 		if (identity.hasKey("name")) {

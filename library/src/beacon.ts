@@ -11,6 +11,7 @@ interface IBeacon extends EventSubscriptionVendor {
 	init(beaconId: string): void
 	open(): void
 	identify(identity: IIdentity): void
+	addAttribute(identity: IIdentity): void
 	logout(): void
 	navigate(route: string): void
 	search(query: string): void
@@ -47,6 +48,6 @@ nativeEmitter.addListener('close', () => {
 })
 
 type BeaconWithEvents = IBeacon & { events: BeaconEventEmitter }
-;(NativeModule as BeaconWithEvents).events = events
+	; (NativeModule as BeaconWithEvents).events = events
 
 export default <BeaconWithEvents>NativeModule
