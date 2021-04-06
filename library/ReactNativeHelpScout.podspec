@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
 
   s.module_name  = 'ReactNativeHelpScout'
 
-  s.source       = { :git => 'https://github.com/codemotionapps/react-native-help-scout.git', :tag => "#{s.version}" }
+  s.source       = { :git => 'https://github.com/consenlabs/react-native-help-scout.git', :tag => "#{s.version}" }
   s.source_files = "ios/**/*.{h,m}"
 
   s.dependency 'React'
-  s.dependency 'Beacon'
+  s.dependency 'Beacon', '~> 2.3.3'
 
   s.frameworks = 'UIKit'
 
